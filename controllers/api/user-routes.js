@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
       res.json(newUser);
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
     const validPassword = user.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: 'Not found' });
+      res.status(500).json({ message: 'Not found' });
       return;
     }
     req.session.save(() => {
@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
       res.json({ user, message: 'logged in!' });
     });
   } catch (err) {
-    res.status(400).json({ message: ' User not found!' });
+    res.status(500).json({ message: ' User not found!' });
   }
 });
 

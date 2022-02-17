@@ -14,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
     });
     res.json(newComment);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -28,7 +28,7 @@ router.get('/', withAuth, async (req, res) => {
 
     res.render('single-post', {comments, loggedIn: req.session.loggedIn});
   } catch(err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 module.exports = router;

@@ -1,5 +1,5 @@
 const { Post } = require('../../models');
-
+const withAuth = require('../../utils/auth');
 const router = require('express').Router();
 //Require the correct files from the models and authorizations
 
@@ -32,7 +32,7 @@ try {
     res.status(404).end();
   } 
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -50,7 +50,7 @@ router.delete('/:id', withAuth, async (req, res) => {
       res.status(404).end();
     }
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
