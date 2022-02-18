@@ -1,6 +1,6 @@
 const router = require('express').Router();
 //Require the correct files from the models and authorizations
-const { Post, User } = require('../models/');
+const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
