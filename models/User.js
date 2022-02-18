@@ -12,26 +12,28 @@ class User extends Model {
 
 User.init(
   {
-  //  What needs to go in the User expression here?
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  username: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      len: [8],
-      
+    //  What needs to go in the User expression here?
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-  },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
+
+      },
+  }},{
+    
+    
     hooks: {
       // How do we set up the hook functionality?
       beforeCreate: async (newUserData) => {
